@@ -1,15 +1,12 @@
-import { Moon, Sun, Menu, X } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import { useState } from "react";
 import logo from "@/assets/logo.png";
 
 const sections = ["About", "Education", "Skills", "Experience", "Projects", "Contact"];
 
-interface NavbarProps {
-  isDark: boolean;
-  toggle: () => void;
-}
 
-const Navbar = ({ isDark, toggle }: NavbarProps) => {
+
+const Navbar = () => {
   const [mobileOpen, setMobileOpen] = useState(false);
 
   const scrollTo = (id: string) => {
@@ -36,23 +33,10 @@ const Navbar = ({ isDark, toggle }: NavbarProps) => {
               {s}
             </button>
           ))}
-          <button
-            onClick={toggle}
-            className="p-2 rounded-xl bg-secondary hover:bg-secondary/80 transition-colors"
-            aria-label="Toggle theme"
-          >
-            {isDark ? <Sun className="w-4 h-4 text-accent" /> : <Moon className="w-4 h-4 text-primary" />}
-          </button>
+          
         </div>
 
-        <div className="flex md:hidden items-center gap-2">
-          <button
-            onClick={toggle}
-            className="p-2 rounded-xl bg-secondary hover:bg-secondary/80 transition-colors"
-            aria-label="Toggle theme"
-          >
-            {isDark ? <Sun className="w-4 h-4 text-accent" /> : <Moon className="w-4 h-4 text-primary" />}
-          </button>
+        <div className="flex md:hidden items-center">          
           <button
             onClick={() => setMobileOpen(!mobileOpen)}
             className="p-2 rounded-xl bg-secondary hover:bg-secondary/80 transition-colors"
